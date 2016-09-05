@@ -1,0 +1,104 @@
+{ 
+"COMMENT": "SCRIPTING TEST",
+"type": "node",
+"name": "rootNode",
+
+
+"scriptFiles": 
+[
+	"goddardScript.js"
+],
+
+"userData":
+{
+	"scripts": ["sceneControl", "firstTime", "mouseDeterminant"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 0, 60],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 60
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light1",
+		"color": [1, 1, 1],
+		"position": [1, 1, 1]
+	},
+	{
+		"COMMENT": "GREEN BOX",
+		"type": "mesh",
+		"name": "sphere1",
+        "scale" : [1,6,0],
+		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat1",
+			"diffuseColor": [0, 0.5, 0 ]
+		}
+	},
+	{
+		"COMMENT": "BLUE BOX",
+		"type": "mesh",
+		"name": "sphere2",
+        "scale" : [1,6,0],
+		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat2",
+			"diffuseColor": [0, 0, 0.5]
+		}
+	},
+	{
+		"COMMENT": "YELLOW BOX",
+		"type": "mesh",
+		"name": "sphere3",
+        "scale" : [1,6,0],
+   		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat3",
+			"diffuseColor": [0.5, 0.5, 0]
+		}
+	},
+	{
+		"COMMENT": "RED BOX",
+		"type": "mesh",
+		"name": "sphere4",
+        "scale" : [1,6,0],
+		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material": 
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat4",
+			"diffuseColor": [0.5, 0, 0]
+		}
+	},
+    {
+        "COMMENT": "DIRECTIONAL LIGHT",
+        "type": "directionalLight",
+        "name": "light2",
+        "color": [1, 1, 1],
+        "position": [-1, -1, -1]
+	}
+ ]
+}
+
