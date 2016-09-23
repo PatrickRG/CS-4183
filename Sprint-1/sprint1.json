@@ -1,0 +1,105 @@
+{ 
+"COMMENT": "SCRIPTING TEST",
+"type": "node",
+"name": "rootNode",
+
+"scriptFiles": 
+[
+	"sprint1.js"
+],
+
+"userData":
+{
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [0, 10, 400],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 60
+	},
+	{
+		"type": "mesh",
+		"name": "Sun",
+        "scale" : [30,30,30],
+        "translate" : [0,0,0],
+        "widthSegments" : 80,
+        "heightSegments" : 80,
+		"geometry": "cube",
+		"material": 
+		{
+			"type": "meshPhongMaterial",
+			"name": "sm2",
+			"diffuseColor": [1, 1, 1],
+			"specularColor": [1, 1, 1],
+			"diffuseMap": "concrete.jpg",
+			"bumpMap": "concrete.jpg",
+			"bumpScale": 0.01,
+			"shininess": 200
+		},
+		"userData": 
+		{ 
+			"scripts": ["rotateScript"],
+			"rotationSpeed": 0.1
+		}
+	},
+	{
+		"type": "mesh",
+		"name": "Sun",
+        "scale" : [300,1,300],
+        "translate" : [0,-90,0],
+        "widthSegments" : 80,
+        "heightSegments" : 80,
+		"geometry": "cube",
+		"material": 
+		{
+			"type": "meshPhongMaterial",
+			"name": "sm2",
+			"diffuseColor": [1.2, 1.2, 1.2],
+			"specularColor": [0.01, 0.01, 0.01],
+			"diffuseMap": "concrete.jpg",
+			"bumpMap": "concrete.jpg",
+			"bumpScale": 0.01,
+			"shininess": 10
+		}
+	},
+	{
+		"type": "node",
+		"name": "spotTarget",
+		"translate": [0,0,0]
+	},
+	{
+	 	"type": "spotLight",
+		"name": "slight",
+		"position": [0,90,0],
+		"castShadow": true,
+		"target": "spotTarget",
+		"color": [1, 0, 0],
+		"intensity": 1.6,
+		"angle": 1.0,
+		"penumbra": 0.2,
+		"decay": 1.0,
+		"distance": 400
+		
+	},
+	{
+	 	"type": "spotLight",
+		"name": "slight",
+		"position": [0,90,90],
+		"castShadow": true,
+		"target": "spotTarget",
+		"color": [0, 0.2, 1],
+		"intensity": 1.6,
+		"angle": 1.0,
+		"penumbra": 0.2,
+		"decay": 1.0,
+		"distance": 400
+		
+	}
+ ]
+}
