@@ -1,0 +1,128 @@
+{
+"COMMENT": "SCRIPTING TEST",
+"type": "node",
+"name": "rootNode",
+
+
+"scriptFiles":
+[
+	"Goddard2.js"
+],
+
+"userData":
+{
+	"scripts": ["printControls","sceneControl", "firstTime", "updateKeys"]
+},
+
+"children":
+[
+	{
+		"COMMENT": "CAMERA LOOKING AT ORIGIN FROM ALONG THE Z AXIS",
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [20, 50, 60],
+		"center": [0, 0, 0],
+		"vup": [0, 1, 0],
+		"fov": 60,
+		"userData":
+		{
+			"scripts": ["cameraRotate"],
+			"rotationSpeed": 0.8
+		}
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light1",
+		"color": [1, 1, 1],
+		"position": [1, 1, 1]
+	},
+	{
+		"COMMENT": "GREEN BOX",
+		"type": "mesh",
+		"name": "sphere1",
+        "scale" : [6,6,6],
+		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material":
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat1",
+			"diffuseColor": [0, 0.25, 0 ]
+		},
+		"userData":
+		{
+			"scripts": ["rotateScript"],
+			"rotationSpeed": 0.8
+		}
+	},
+	{
+		"COMMENT": "BLUE BOX",
+		"type": "mesh",
+		"name": "sphere2",
+        "scale" : [6,6,6],
+		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material":
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat2",
+			"diffuseColor": [0, 0, 0.25]
+		},
+		"userData":
+		{
+			"scripts": ["rotateScript"],
+			"rotationSpeed": 0.6
+		}
+	},
+	{
+		"COMMENT": "YELLOW BOX",
+		"type": "mesh",
+		"name": "sphere3",
+        "scale" : [6,6,6],
+   		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material":
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat3",
+			"diffuseColor": [0.25, 0.25, 0]
+		},
+		"userData":
+		{
+			"scripts": ["rotateScript"],
+			"rotationSpeed": 0.3
+		}
+	},
+	{
+		"COMMENT": "RED BOX",
+		"type": "mesh",
+		"name": "sphere4",
+        "scale" : [6,6,6],
+		"geometry": "cube",
+		"widthSegments": 0,
+		"heightSegments": 32,
+		"material":
+		{
+			"type": "meshLambertMaterial",
+			"name": "sphereMat4",
+			"diffuseColor": [0.25, 0, 0]
+		},
+		"userData":
+		{
+			"scripts": ["rotateScript"],
+			"rotationSpeed": 0.4
+		}
+	},
+    {
+        "COMMENT": "DIRECTIONAL LIGHT",
+        "type": "directionalLight",
+        "name": "light2",
+        "color": [1, 1, 1],
+        "position": [-1, -1, -1]
+	}
+ ]
+}
