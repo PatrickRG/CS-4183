@@ -1,0 +1,217 @@
+{
+"COMMENT": "A spot light",
+"type": "node",
+"name": "rootNode",
+"scriptFiles": [ "goddardCar.js" ],
+"userData": { "scripts": ["driveScript", "collision"] },
+
+"children":
+[
+	{
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [-20, 20, 60],
+		"center": [0, 1, 0],
+		"vup": [0, 1, 0],
+		"fov": 20
+	},
+	{
+		"type": "mesh",
+		"name": "floor",
+        "scale" : [80,1,80],
+        "translate" : [0,-1.75,-30],
+        "widthSegments" : 80,
+        "heightSegments" : 80,
+		"geometry": "cube",
+		"material":
+		{
+			"type": "meshPhongMaterial",
+			"name": "sm2",
+			"diffuseColor": [1.2, 1.2, 1.2],
+			"specularColor": [0.01, 0.01, 0.01],
+			"diffuseMap": "parkingGarage.jpg",
+			"bumpMap": "parkingGarage.jpg",
+			"bumpScale": 0.01,
+			"shininess": 10
+		}
+	},
+	{
+		"type": "perspectiveCamera",
+		"name": "camera2",
+		"eye": [20, 20, 6],
+		"center": [0, 1, 0],
+		"vup": [0, 1, 0],
+		"fov": 60
+	},
+	{
+		"type": "perspectiveCamera",
+		"name": "camera3",
+		"eye": [0, 70, 25],
+		"center": [0, 1, 0],
+		"vup": [0, 1, 0],
+		"fov": 90
+	},
+	{
+		"type": "hemisphereLight",
+		"name": "hlight",
+		"skyColor": [0.7, 0.7, 1.0],
+		"groundColor": [0.2, 0.0, 0.1],
+		"intensity": 0.6
+	},
+	{
+	"type": "mesh",
+	"name": "building",
+	"scale": [8, 5, 10],
+	"translate": [15, 0, -20],
+	"geometry": "cube",
+	"widthSegments": 32,
+	"heightSegments": 16,
+	"material":
+		{
+		"type": "meshLambertMaterial",
+		"name": "sphereMat",
+		"diffuseColor": [0.5, 0.5, 0.5]
+		}
+	},
+	{
+	"type": "mesh",
+	"name": "building2",
+	"scale": [8, 5, 10],
+	"translate": [15, 0, -80],
+	"geometry": "cube",
+	"widthSegments": 32,
+	"heightSegments": 16,
+	"material":
+		{
+		"type": "meshLambertMaterial",
+		"name": "sphereMat",
+		"diffuseColor": [0, 0.5, 0.5]
+		}
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light1",
+		"color": [1, 1, 1],
+		"position": [0.7, 0.75, 1.0]
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light2",
+		"color": [1, 1, 1],
+		"position": [-0.4, 0.2, -1.0]
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light3",
+		"color": [1, 1, 0],
+		"position": [-0.4, -0.2, 1.0]
+	},
+
+	{
+	   "COMMENT": "car",
+	   "type": "node",
+	   "name": "car",
+	   "scale":[0.5,0.5,0.5],
+	   "children":
+	   [
+		   {
+		   "type": "mesh",
+		   "name": "body",
+		   "scale": [2.5, 0.5, 1.5],
+		   "translate": [0, 0, 0],
+		   "geometry": "cube",
+		   "widthSegments": 32,
+		   "heightSegments": 16,
+		   "material":
+			   {
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [0, 0, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "bodyTop",
+		   "scale": [1.5, 0.75, 1.5],
+		   "translate": [-1, 1, 0],
+		   "geometry": "cube",
+		   "widthSegments": 32,
+		   "heightSegments": 16,
+		   "material":
+			   {
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [0, 0, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel1",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [2, -1, 1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+                "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel2",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [2, -1, -1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+        "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel3",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [-2, -1, -1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+        "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel4",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [-2, -1, 1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+        "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   }
+	   ]
+   }
+]
+}
