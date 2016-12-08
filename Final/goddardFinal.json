@@ -1,0 +1,327 @@
+{
+"COMMENT": "A spot light",
+"type": "node",
+"name": "rootNode",
+"scriptFiles": [ "goddardFinal.js" ],
+"userData": { "scripts": ["driveScript", "collision"] },
+
+"children":
+[
+	{
+		"type": "perspectiveCamera",
+		"name": "camera1",
+		"eye": [-20, 20, 60],
+		"center": [0, 1, 0],
+		"vup": [0, 1, 0],
+		"fov": 20
+	},
+	{
+		"type": "mesh",
+		"name": "floor",
+        "scale" : [80,1,80],
+        "translate" : [0,-1.75,-30],
+        "widthSegments" : 80,
+        "heightSegments" : 80,
+		"geometry": "cube",
+		"material":
+		{
+			"type": "meshPhongMaterial",
+			"name": "sm2",
+			"diffuseColor": [1.2, 1.2, 1.2],
+			"specularColor": [0.01, 0.01, 0.01],
+			"diffuseMap": "parkingGarage.jpg",
+			"bumpMap": "parkingGarage.jpg",
+			"bumpScale": 0.01,
+			"shininess": 10
+		}
+	},
+	{
+		"type": "mesh",
+		"name": "skyBox",
+        "scale" : [-80,50,80],
+        "translate" : [0,0,-30],
+        "widthSegments" : 80,
+        "heightSegments" : 80,
+		"geometry": "cube",
+		"material":
+		{
+			"type": "meshPhongMaterial",
+			"name": "sm2",
+			"diffuseColor": [1.2, 1.2, 1.2],
+			"specularColor": [0.01, 0.01, 0.01],
+			"diffuseMap": "space.png",
+			"bumpMap": "space.png",
+			"bumpScale": 0.01,
+			"shininess": 10
+		}
+	},
+	{
+		"type": "perspectiveCamera",
+		"name": "camera2",
+		"eye": [20, 20, 6],
+		"center": [0, 1, 0],
+		"vup": [0, 1, 0],
+		"fov": 60
+	},
+	{
+		"type": "perspectiveCamera",
+		"name": "camera3",
+		"eye": [0, 90, 20],
+		"center": [0, 1, 0],
+		"vup": [0, 1, 0],
+		"fov": 90
+	},
+	{
+	"type": "mesh",
+	"name": "building",
+	"scale": [50, 50, 50],
+	"translate": [-8, -1.5, -20],
+	"geometry": "house.obj",
+	"material":
+		{
+		"type": "meshPhongMaterial",
+		"name": "sphereMat",
+		"specularColor": [0.01, 0.01, 0.01],
+		"diffuseMap": "buildingText.jpg",
+		"bumpMap": "buildingText.jpg",
+		"diffuseColor": [1, 1, 1]
+		}
+	},
+	{
+	"type": "mesh",
+	"name": "building2",
+	"scale": [50, 50, 50],
+	"translate": [-10, -1.5, -75],
+	"geometry": "house.obj",
+	"material":
+		{
+		"type": "meshPhongMaterial",
+		"name": "sphereMat",
+		"specularColor": [0.01, 0.01, 0.01],
+		"diffuseMap": "buildingText.jpg",
+		"bumpMap": "buildingText.jpg",
+		"diffuseColor": [1, 1, 1]
+		}
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light1",
+		"color": [1, 1, 1],
+		"position": [0.7, 0.75, 1.0]
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light2",
+		"color": [1, 1, 1],
+		"position": [-0.4, 0.2, -1.0]
+	},
+	{
+		"COMMENT": "DIRECTIONAL LIGHT",
+		"type": "directionalLight",
+		"name": "light3",
+		"color": [1, 1, 1],
+		"position": [-0.4, -0.2, 1.0]
+	},
+
+	{
+		"type": "node",
+		"name": "bullets",
+		"children":
+		[
+			{
+				"type": "mesh",
+				"name": "bulletEast",
+				"scale": [1, 1, 1],
+				"translate": [140, 0, 50],
+				"geometry": "rocket.obj",
+				"widthSegments": 32,
+				"heightSegments": 16,
+				"material":
+				{
+					"type": "meshLambertMaterial",
+					"diffuseMap": "rocketTexture.png",
+					"bumpMap": "rocketTexture.png",
+					"name": "sphereMat",
+					"diffuseColor": [0.7, 1, 1]
+				},
+				"userData": { "velocity": [-1,0,0]}
+		  	},
+			{
+				"type": "mesh",
+				"name": "bulletSouth",
+				"scale": [1, 1, 1],
+				"translate": [0, 0, 140],
+				"geometry": "rocket.obj",
+				"widthSegments": 32,
+				"heightSegments": 16,
+				"material":
+				{
+					"type": "meshLambertMaterial",
+					"diffuseMap": "rocketTexture.png",
+					"bumpMap": "rocketTexture.png",
+					"name": "sphereMat",
+					"diffuseColor": [0.7, 1, 1]
+				},
+				"userData": { "velocity": [0,0,-1]}
+			  },
+			  {
+				  "type": "mesh",
+				  "name": "bulletWest",
+				  "scale": [1, 1, 1],
+				  "translate": [-140, 0, 0],
+				  "geometry": "rocket.obj",
+				  "widthSegments": 32,
+				  "heightSegments": 16,
+				  "material":
+				  {
+					  "type": "meshLambertMaterial",
+					  "diffuseMap": "rocketTexture.png",
+ 		 			  "bumpMap": "rocketTexture.png",
+					  "name": "sphereMat",
+					  "diffuseColor": [0.7, 1, 1]
+				  },
+				  "userData": { "velocity": [1,0,0]}
+			},
+			{
+				"type": "mesh",
+				"name": "bulletNorth",
+				"scale": [1, 1, 1],
+				"translate": [0, 0, -140],
+				"geometry": "rocket.obj",
+				"widthSegments": 32,
+				"heightSegments": 16,
+				"material":
+				{
+					"type": "meshLambertMaterial",
+					"diffuseMap": "rocketTexture.png",
+					"bumpMap": "rocketTexture.png",
+					"name": "sphereMat",
+					"diffuseColor": [0.7, 1, 1]
+				},
+				"userData": { "velocity": [0,0,1]}
+		  	}
+		]
+	},
+	{
+	   "COMMENT": "car",
+	   "type": "node",
+	   "name": "car",
+	   "scale":[0.5,0.5,0.5],
+	   "children":
+	   [
+		   {
+	   		"type": "perspectiveCamera",
+	   		"name": "FPSCamera",
+	   		"eye": [-1, 1, 0],
+	   		"center": [0, 1, 0],
+	   		"vup": [0, 1, 0],
+	   		"fov": 40
+	   		},
+			{
+ 	   		"type": "perspectiveCamera",
+ 	   		"name": "TPSCamera",
+ 	   		"eye": [-40, 20, 0],
+ 	   		"center": [0, 1, 0],
+ 	   		"vup": [0, 1, 0],
+ 	   		"fov": 40
+ 	   		},
+		   {
+		   "type": "mesh",
+		   "name": "body",
+		   "scale": [2.5, 0.5, 1.5],
+		   "translate": [0, 0, 0],
+		   "geometry": "cube",
+		   "widthSegments": 32,
+		   "heightSegments": 16,
+		   "material":
+			   {
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [0, 0, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "bodyTop",
+		   "scale": [1.5, 0.75, 1.5],
+		   "translate": [-1, 1, 0],
+		   "geometry": "cube",
+		   "widthSegments": 32,
+		   "heightSegments": 16,
+		   "material":
+			   {
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [0, 0, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel1",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [2, -1, 1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+                "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel2",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [2, -1, -1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+        "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel3",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [-2, -1, -1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+        "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   },
+		   {
+		   "type": "mesh",
+		   "name": "wheel4",
+		   "scale": [0.6, 0.6, 0.25],
+		   "translate": [-2, -1, 1.25],
+		   "geometry": "sphere",
+		   "widthSegments": 16,
+		   "heightSegments": 8,
+		   "material":
+			   {
+        "diffuseMap": "wheel2.png",
+			   "type": "meshLambertMaterial",
+			   "name": "sphereMat",
+			   "diffuseColor": [1, 1, 1]
+			   }
+		   }
+	   ]
+   }
+]
+}
