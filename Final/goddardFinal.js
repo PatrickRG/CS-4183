@@ -107,12 +107,16 @@ function driveScript(sceneNode)
     spawnBullets(sceneNode, n);
 }
 
+function firstTime(sceneNode){
+	location.reload();
+}
+
 function died(sceneNode){
     var endTime = new Date();
     var timeDifference = (endTime - startTime)/1000;
     var seconds = Math.round(timeDifference % 60);
     window.alert("You died! You survived: " + seconds + " seconds!");
-    location.reload();
+    firstTime(sceneNode);
 }
 
 function spawnBullets(sceneNode, n){
