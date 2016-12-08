@@ -111,7 +111,7 @@ function died(sceneNode){
     var endTime = new Date();
     var timeDifference = (endTime - startTime)/1000;
     var seconds = Math.round(timeDifference % 60);
-    debug("You died! You survived: " + seconds + " seconds!");
+    window.alert("You died! You survived: " + seconds + " seconds!");
     location.reload();
 }
 
